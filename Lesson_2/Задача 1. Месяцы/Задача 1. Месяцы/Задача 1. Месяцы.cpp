@@ -16,47 +16,47 @@ enum class months
 	Ноябрь,
 	Декабрь
 };
-void print_month(int x)
+void print_month(months x)
 {
 	switch (x)
 	{
-	case static_cast<int>(months::Ноль):
+	case months::Ноль:
 		std::cout << "До свидания\n";
 		break;
-	case static_cast<int>(months::Январь):
+	case months::Январь:
 		std::cout << "Январь\n";
 		break;
-	case static_cast<int>(months::Февраль):
+	case months::Февраль:
 		std::cout << "Февраль\n";
 		break;
-	case static_cast<int>(months::Март):
+	case months::Март:
 		std::cout << "Март\n";
 		break;
-	case static_cast<int>(months::Апрель):
+	case months::Апрель:
 		std::cout << "Апрель\n";
 		break;
-	case static_cast<int>(months::Май):
+	case months::Май:
 		std::cout << "Май\n";
 		break;
-	case static_cast<int>(months::Июнь):
+	case months::Июнь:
 		std::cout << "Июнь\n";
 		break;
-	case static_cast<int>(months::Июль):
+	case months::Июль:
 		std::cout << "Июль\n";
 		break;
-	case static_cast<int>(months::Август):
+	case months::Август:
 		std::cout << "Август\n";
 		break;
-	case static_cast<int>(months::Сентябрь):
+	case months::Сентябрь:
 		std::cout << "Сентябрь\n";
 		break;
-	case static_cast<int>(months::Октябрь):
+	case months::Октябрь:
 		std::cout << "Октябрь\n";
 		break;
-	case static_cast<int>(months::Ноябрь):
+	case months::Ноябрь:
 		std::cout << "Ноябрь\n";
 		break;
-	case static_cast<int>(months::Декабрь):
+	case months::Декабрь:
 		std::cout << "Декабрь\n";
 		break;
 	default:
@@ -72,7 +72,7 @@ int main(int argc, char** argv)
 	{
 		std::cout << "Введите номер месяца: ";
 		std::cin >> a;
-		print_month(a);
+		print_month(static_cast<months>(a));
 	} while (a);
 	return 0;
 }
