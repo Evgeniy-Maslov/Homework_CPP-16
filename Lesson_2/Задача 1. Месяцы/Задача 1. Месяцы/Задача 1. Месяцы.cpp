@@ -1,5 +1,4 @@
 #include <iostream>
-#include <windows.h>
 
 enum class months
 {
@@ -17,7 +16,6 @@ enum class months
 	Ноябрь,
 	Декабрь
 };
-
 void print_month(int x)
 {
 	switch (x)
@@ -66,11 +64,9 @@ void print_month(int x)
 			break;
 	}
 }
-
 int main(int argc, char** argv)
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+	setlocale(LC_CTYPE, "rus");
 	int a;
 	do
 	{
