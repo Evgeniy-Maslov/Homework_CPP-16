@@ -4,10 +4,13 @@
 class Addresses
 {
     int n;
-    std::string City;
-    std::string street;
-    int house;
-    int apartment;
+    struct arr_Address
+    {
+        std::string City;
+        std::string street;
+        int house;
+        int apartment;
+    };
 public:
     void overwrite_file()
     {
@@ -18,7 +21,7 @@ private:
     {
         std::ifstream fin("in.txt");
         fin >> n;
-        Addresses* list = new Addresses[n];
+        arr_Address* list = new arr_Address[n];
         for (int i = 0; i < n; i++)
         {
             fin >> list[i].City
@@ -30,7 +33,7 @@ private:
         sorting_city(n, list);
         write_Address(n, list);
     }
-    void sorting_city(int n, Addresses* list)
+    void sorting_city(int n, arr_Address* list)
     {
         for (int j = 0; j < n; j++) 
         {
@@ -38,14 +41,14 @@ private:
             {
                 if (list[i].City < list[i - 1].City) 
                 {
-                    Addresses tmp = list[i];
+                    arr_Address tmp = list[i];
                     list[i] = list[i - 1];
                     list[i - 1] = tmp;
                 }
             }
         }
     }
-    void write_Address(int n, Addresses* list)
+    void write_Address(int n, arr_Address* list)
     {
         std::ofstream fout("out.txt");
         fout << n << std::endl;
