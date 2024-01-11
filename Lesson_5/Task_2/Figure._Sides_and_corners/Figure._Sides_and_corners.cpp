@@ -18,9 +18,10 @@ protected:
     }
 public:
     Figure() :Figure(0) { }
+    virtual void conductor() { }
     void get_sides_count()
     {
-        std::cout << name << ": " << sides_count << "\n";
+        std::cout << name << ": " << sides_count << std::endl;
     }
 };
 
@@ -41,16 +42,19 @@ protected:
         sides_count = 3;
         get_name("Triangle");
     }
-public:
-    Triangle() :Triangle(10, 20, 30, 50, 60, 70) { }
-
-    void get_Triangle()
+    void conductor() override
+    {
+        get_Triangle();
+    }
+    void get_Triangle() 
     {
         std::cout << name << ":" << std::endl;
         std::cout << "Sides: a=" << a << " b=" << b << " c=" << c << std::endl;
         std::cout << "Corners: A=" << A << " B=" << B << " C=" << C << std::endl;
         std::cout << std::endl;
     }
+public:
+    Triangle() :Triangle(10, 20, 30, 50, 60, 70) { }
 };
 
         //класс "Прямоугольный треугольник"
@@ -130,9 +134,10 @@ protected:
         sides_count = 4;
         get_name("Quadrilateral");
     }
-public:
-    Quadrilateral():Quadrilateral(10, 20, 30, 40, 50, 60, 70, 80) { }
-   
+    void conductor() override
+    {
+        get_Quadrilateral();
+    }
     void get_Quadrilateral()
     {
         std::cout << name << ":" <<std::endl;
@@ -140,6 +145,8 @@ public:
         std::cout << "Corners: A=" << A << " B=" << B << " C=" << C << " D=" << D << std::endl;
         std::cout << std::endl;
     }
+public:
+    Quadrilateral():Quadrilateral(10, 20, 30, 40, 50, 60, 70, 80) { }
 };
 
         //класс "Параллелограмм"
@@ -215,13 +222,9 @@ public:
     Quadrat(): Quadrat(20) { }
 };
 
-void print_info(Quadrilateral* a)
+void print_info(Figure* a)
 {
-    a->get_Quadrilateral();
-}
-void print_info(Triangle* a)
-{
-    a->get_Triangle();
+    a->conductor();
 }
 
 int main(int argc, char** argv)
@@ -237,15 +240,15 @@ int main(int argc, char** argv)
     Rectangle rectangle;
     Quadrat quadrat;
 
-    Triangle* par_triangle = &triangle;
-    Triangle* par_right_angled_triangle = &right_angled_triangle;
-    Triangle* par_isosceles_triangle = &isosceles_triangle;
-    Triangle* par_equilateral_triangle = &equilateral_triangle;
-    Quadrilateral* par_quadrilateral = &quadrilateral;
-    Quadrilateral* par_rectangle = &rectangle;
-    Quadrilateral* par_quadrat = &quadrat;
-    Quadrilateral* par_parallelogram = &parallelogram;
-    Quadrilateral* par_rhomb = &rhomb;
+    Figure* par_triangle = &triangle;
+    Figure* par_right_angled_triangle = &right_angled_triangle;
+    Figure* par_isosceles_triangle = &isosceles_triangle;
+    Figure* par_equilateral_triangle = &equilateral_triangle;
+    Figure* par_quadrilateral = &quadrilateral;
+    Figure* par_rectangle = &rectangle;
+    Figure* par_quadrat = &quadrat;
+    Figure* par_parallelogram = &parallelogram;
+    Figure* par_rhomb = &rhomb;
     
     print_info(par_triangle);
     print_info(par_right_angled_triangle);
@@ -256,8 +259,6 @@ int main(int argc, char** argv)
     print_info(par_quadrat);
     print_info(par_parallelogram);
     print_info(par_rhomb);
-
-    //std::cout << get_Triangle();
 
     return 0;
 }
