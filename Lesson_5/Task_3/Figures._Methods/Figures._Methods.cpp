@@ -171,7 +171,7 @@ protected:
 public:
     Quadrilateral() :Quadrilateral(10, 20, 30, 40, 50, 60, 70, 80) { }
 
-    void print_info()
+    void print_info() override
     {
         std::cout << std::endl;
         Figure::print_info();
