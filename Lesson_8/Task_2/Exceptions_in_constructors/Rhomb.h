@@ -4,9 +4,8 @@
 class Rhomb :public Parallelogram
 {
 protected:
-    Rhomb(int a);
+    Rhomb(int a, int A, int B);
     bool check() override;
-    bool check_Rhomb();
 public:
     Rhomb();
 };

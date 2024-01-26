@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2949bc8a-73ab-40f5-9e01-6a416bf67813}</ProjectGuid>
-    <RootNamespace>SimpleException</RootNamespace>
+    <ProjectGuid>{0d69faa3-45f8-4575-990c-10a5750461c8}</ProjectGuid>
+    <RootNamespace>Otheroperationswithfractions</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,13 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="bad_length.cpp" />
-    <ClCompile Include="function.cpp" />
-    <ClCompile Include="Simple_Exception.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="bad_length.h" />
-    <ClInclude Include="function.h" />
+    <ClCompile Include="Other operations with fractions.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

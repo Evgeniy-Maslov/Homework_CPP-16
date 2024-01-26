@@ -1,23 +1,10 @@
 #include"Rhomb.h"
 
 
-Rhomb::Rhomb() : Rhomb(30) { }
-Rhomb::Rhomb(int a) : Parallelogram(a)
+Rhomb::Rhomb() : Rhomb(30, 100, 80) { }
+Rhomb::Rhomb(int a, int A, int B) : Parallelogram(a, a, A, B)
 {
-    this->a = a;
-    c = a;
-    b = a;
-    d = 7; // Искусственно внесенная ошибка
-    //  d = a; // Павильный параметр
     if (!check())
-    {
-        if (!check_Rhomb())
-        {
-            throw Figure_error("the sum of the angles '!=' 360, all sides!= or angles 'A', 'C' and 'B', 'D' in pairs '!='\n");
-        }
-        throw Figure_error("the sum of the angles '!=' 360\n");
-    }
-    else if (!check_Rhomb())
     {
         throw Figure_error("all sides '!=' or angles 'A', 'C' and 'B', 'D' in pairs '!='\n");
     }
@@ -25,9 +12,5 @@ Rhomb::Rhomb(int a) : Parallelogram(a)
 }
 bool Rhomb::check()
 {
-    return (Quadrilateral::check());
-}
-bool Rhomb::check_Rhomb()
-{
-    return (d == c && Parallelogram::check_Parallelogram());
+    return (d == c);
 }

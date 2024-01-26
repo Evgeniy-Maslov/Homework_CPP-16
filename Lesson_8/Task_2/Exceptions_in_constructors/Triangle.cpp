@@ -16,32 +16,6 @@ Triangle::Triangle(int a, int b, int c, int A, int B, int C)
         throw Figure_error("the sum of the angles '!=' 180\n");
     get_name("Triangle");
 }
-Triangle::Triangle(int a, int b, int c, int A, int B)
-{
-    this->a = a;
-    this->b = b;
-    this->c = c;
-    this->A = A;
-    this->B = B;
-    sides_count = 3;
-    get_name("Triangle");
-}
-Triangle::Triangle(int a, int b, int A, int B)
-{
-    this->a = a;
-    this->b = b;
-    this->A = A;
-    this->B = B;
-    sides_count = 3;
-    get_name("Triangle");
-}
-Triangle::Triangle(int a, int A)
-{
-    this->a = a;
-    this->A = A;
-    sides_count = 3;
-    get_name("Triangle");
-}
 void Triangle::conductor()
 {
     get_Triangle();

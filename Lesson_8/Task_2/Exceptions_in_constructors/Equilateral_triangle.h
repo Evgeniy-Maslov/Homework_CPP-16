@@ -4,9 +4,8 @@
 class Equilateral_triangle :public Triangle
 {
 protected:
-    Equilateral_triangle(int a, int A);
+    Equilateral_triangle(int a);
     bool check() override;
-    bool check_Equilateral_triangle();
 public:
     Equilateral_triangle();
 };

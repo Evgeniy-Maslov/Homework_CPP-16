@@ -18,7 +18,7 @@
     <ClCompile Include="Exceptions_in_constructors.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Figure_error.cpp">
+    <ClCompile Include="Bad_Error.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Figure.cpp">
@@ -56,7 +56,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Figure_error.h">
+    <ClInclude Include="Bad_Error.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Figure.h">

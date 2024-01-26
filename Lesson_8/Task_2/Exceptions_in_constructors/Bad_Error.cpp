@@ -1,4 +1,4 @@
-#include"Figure_error.h"
+#include"Bad_Error.h"
 
 
 

@@ -19,28 +19,6 @@ Quadrilateral::Quadrilateral(int a, int b, int c, int d, int A, int B, int C, in
     }
     get_name("Quadrilateral");
 }
-Quadrilateral::Quadrilateral(int a, int b, int A, int B)
-{
-    this->a = a;
-    this->b = b;
-    this->A = A;
-    this->B = B;
-    sides_count = 4;
-    get_name("Quadrilateral");
-}
-Quadrilateral::Quadrilateral(int a, int b)
-{
-    this->a = a;
-    this->b = b;
-    sides_count = 4;
-    get_name("Quadrilateral");
-}
-Quadrilateral::Quadrilateral(int a)
-{
-    this->a = a;
-    sides_count = 4;
-    get_name("Quadrilateral");
-}
 void Quadrilateral::conductor()
 {
     get_Quadrilateral();

@@ -130,7 +130,7 @@
     <ClCompile Include="Equilateral_triangle.cpp" />
     <ClCompile Include="Exceptions_in_constructors.cpp" />
     <ClCompile Include="Figure.cpp" />
-    <ClCompile Include="Figure_error.cpp" />
+    <ClCompile Include="Bad_Error.cpp" />
     <ClCompile Include="Isosceles_triangle.cpp" />
     <ClCompile Include="Parallelogram.cpp" />
     <ClCompile Include="print_info.cpp" />
@@ -144,7 +144,7 @@
   <ItemGroup>
     <ClInclude Include="Equilateral_triangle.h" />
     <ClInclude Include="Figure.h" />
-    <ClInclude Include="Figure_error.h" />
+    <ClInclude Include="Bad_Error.h" />
     <ClInclude Include="Isosceles_triangle.h" />
     <ClInclude Include="Parallelogram.h" />
     <ClInclude Include="print_info.h" />

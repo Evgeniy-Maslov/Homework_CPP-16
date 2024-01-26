@@ -1,11 +1,6 @@
 ﻿#include <iostream>
-
-int function(std::string str, int forbidden_length)
-{
-    if (str.length() != forbidden_length)
-        return str.length();
-    throw std::string{ "You have entered a word of forbidden length! Goodbye" };
- }
+#include "bad_length.h"
+#include"function.h"
 
 int main()
 {
@@ -22,9 +17,9 @@ int main()
         {
             std::cout << "The length of the word \"" << str << "\" equal to " << function(str, forbidden_length) << std::endl;
         }
-        catch (std::string& bad_length)
+        catch (bad_length& bad)
         {
-            std::cerr << bad_length << std::endl;
+            std::cerr << bad.what() << std::endl;
             cycle = 0;
         }
     }

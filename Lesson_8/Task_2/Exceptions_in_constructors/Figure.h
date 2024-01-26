@@ -1,5 +1,5 @@
 #include <iostream>
-#include"Figure_error.h"
+#include"Bad_Error.h"
 #pragma once
 
 
