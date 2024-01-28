@@ -5,10 +5,10 @@ Fraction::Fraction(int numerator, int denominator)
 {
 	numerator_ = numerator;
 	denominator_ = denominator;
-	k = nod(numerator_, denominator_);  // коэффициент для сокращения дроби. 
+	k = nod(numerator_, denominator_);       // coefficient for fraction reduction. 
 	reduction_fractions(k);
 }
-void Fraction::reduction_fractions(int k)    // сокращение дроби
+void Fraction::reduction_fractions(int k)    // fraction reduction
 {
 	if (k > 1)
 	{ 
@@ -16,7 +16,7 @@ void Fraction::reduction_fractions(int k)    // сокращение дроби
 		denominator_ /= k;
 	}
 }
-int Fraction::nod(int a, int b)         // наибольший общий делитель 
+int Fraction::nod(int a, int b)              // greatest common divisor
 {
 	if (a < b) { std::swap(a, b); }
 	while (b)
@@ -26,11 +26,11 @@ int Fraction::nod(int a, int b)         // наибольший общий делитель
 	}
 	return a;
 }
-int Fraction::nok(int a, int b)        // наименьший общий кратный
+int Fraction::nok(int a, int b)            // The smallest common multiple
 {
 	return a / nod(a, b) * b;
 }
-void Fraction::show()                  // вывод на консоль
+void Fraction::show()                      // output to the console
 {
 	std::cout << numerator_ << "/" << denominator_;
 }
