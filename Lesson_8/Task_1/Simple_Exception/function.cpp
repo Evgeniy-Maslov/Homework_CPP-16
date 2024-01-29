@@ -1,4 +1,5 @@
 #include"function.h"
+#include "bad_length.h"
 
 int function(std::string str, int forbidden_length)
 {

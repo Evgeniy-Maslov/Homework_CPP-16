@@ -1,5 +1,5 @@
-#include"Rectangle.h"
 #pragma once
+#include"Rectangle.h"
 
 class Quadrat : public Rectangle
 {

@@ -1,5 +1,6 @@
+#include <iostream>
 #include"Triangle.h"
-
+#include"Bad_Error.h"
 
 int a, b, c, A, B, C;
 Triangle::Triangle() :Triangle(10, 20, 30, 50, 60, 70) { }
@@ -14,7 +15,7 @@ Triangle::Triangle(int a, int b, int c, int A, int B, int C)
     sides_count = 3;
     if (!check())
         throw Figure_error("the sum of the angles '!=' 180\n");
-    get_name("Triangle");
+    set_name("Triangle");
 }
 void Triangle::conductor()
 {

@@ -1,4 +1,7 @@
 #include"Quadrilateral.h"
+#include "Bad_Error.h"
+#include"Figure.h"
+#include <iostream>
 
 
 Quadrilateral::Quadrilateral() :Quadrilateral(10, 20, 30, 40, 50, 60, 70, 80) { }
@@ -17,7 +20,7 @@ Quadrilateral::Quadrilateral(int a, int b, int c, int d, int A, int B, int C, in
     {
         throw Figure_error("the sum of the angles '!=' 360\n");
     }
-    get_name("Quadrilateral");
+    set_name("Quadrilateral");
 }
 void Quadrilateral::conductor()
 {

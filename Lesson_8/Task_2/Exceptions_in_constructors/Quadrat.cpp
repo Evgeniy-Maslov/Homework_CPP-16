@@ -1,5 +1,6 @@
 #include"Quadrat.h"
-
+#include"Bad_Error.h"
+#include "Figure.h"
 
 Quadrat::Quadrat(): Quadrat(20) { }
 Quadrat::Quadrat(int a): Rectangle(a, a)
@@ -8,7 +9,7 @@ Quadrat::Quadrat(int a): Rectangle(a, a)
     {
         throw Figure_error("all sides '!='\n");
     }
-    get_name("Quadrat");
+    set_name("Quadrat");
 }
 bool Quadrat::check()
 {

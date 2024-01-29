@@ -1,6 +1,5 @@
-#include"Triangle.h"
 #pragma once
-
+#include"Triangle.h"
 class Isosceles_triangle :public Triangle
 {
 protected:

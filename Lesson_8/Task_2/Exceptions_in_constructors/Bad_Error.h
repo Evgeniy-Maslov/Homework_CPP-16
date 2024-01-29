@@ -1,5 +1,5 @@
-#include <iostream>
 #pragma once
+#include <iostream>
 
 class Figure_error :public std::domain_error
 {

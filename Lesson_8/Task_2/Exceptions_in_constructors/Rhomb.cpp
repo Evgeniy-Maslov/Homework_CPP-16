@@ -1,5 +1,6 @@
 #include"Rhomb.h"
-
+#include"Bad_Error.h"
+#include "Figure.h"
 
 Rhomb::Rhomb() : Rhomb(30, 100, 80) { }
 Rhomb::Rhomb(int a, int A, int B) : Parallelogram(a, a, A, B)
@@ -8,7 +9,7 @@ Rhomb::Rhomb(int a, int A, int B) : Parallelogram(a, a, A, B)
     {
         throw Figure_error("all sides '!=' or angles 'A', 'C' and 'B', 'D' in pairs '!='\n");
     }
-    get_name("Rhomb");
+    set_name("Rhomb");
 }
 bool Rhomb::check()
 {

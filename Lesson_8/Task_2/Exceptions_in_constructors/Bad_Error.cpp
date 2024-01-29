@@ -1,6 +1,5 @@
 #include"Bad_Error.h"
-
-
+//#include <iostream>
 
 Figure_error::Figure_error(const char* message) : std::domain_error(message)
 {

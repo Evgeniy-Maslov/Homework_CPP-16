@@ -1,14 +1,12 @@
-#include <iostream>
-#include"Bad_Error.h"
 #pragma once
-
+#include <string>
 
 class Figure
 {
 protected:
     std::string name;
     int sides_count;
-    void get_name(std::string m_name);
+    void set_name(std::string m_name);
     Figure(int sides_count);
 public:
     Figure();

@@ -1,5 +1,5 @@
-#include"Triangle.h"
 #pragma once
+#include"Triangle.h"
 
 class Equilateral_triangle :public Triangle
 {

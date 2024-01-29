@@ -1,5 +1,5 @@
-#include"Parallelogram.h"
 #pragma once
+#include "Parallelogram.h"
 
 class Rhomb :public Parallelogram
 {

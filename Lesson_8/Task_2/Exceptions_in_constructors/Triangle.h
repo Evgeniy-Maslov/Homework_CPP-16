@@ -1,7 +1,6 @@
-#include <iostream>
-#include"Bad_Error.h"
-#include"Figure.h"
 #pragma once
+//#include <string>
+#include"Figure.h"
 
 class Triangle : public Figure
 {

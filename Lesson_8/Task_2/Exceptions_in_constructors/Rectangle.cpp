@@ -1,4 +1,6 @@
 #include"Rectangle.h"
+#include"Bad_Error.h"
+#include "Figure.h"
 
 Rectangle::Rectangle() : Rectangle(20, 30) { }
 Rectangle::Rectangle(int a, int b) : Parallelogram(a, b, 90, 90)
@@ -8,7 +10,7 @@ Rectangle::Rectangle(int a, int b) : Parallelogram(a, b, 90, 90)
     {
         throw Figure_error("all corners '!=' 90\n");
     }
-    get_name("Rectangle");
+    set_name("Rectangle");
 }
 bool Rectangle::check()
 {
