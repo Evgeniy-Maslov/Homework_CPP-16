@@ -1,12 +1,12 @@
 #include"Parallelogram.h"
 #pragma once
 
-class Rhomb :public Parallelogram
+class Rectangle :public Parallelogram
 {
 protected:
-    Rhomb(int, int, int);
+    Rectangle(int, int);
     bool check() override;
     void print_info() override;
 public:
-    Rhomb();
+    Rectangle();
 };
