@@ -1,3 +1,0 @@
-E:/source/Basic_programming_n_Cpp/Lesson_10/Task_1/build/CMakeFiles/my_first_cmake_program.dir
-E:/source/Basic_programming_n_Cpp/Lesson_10/Task_1/build/CMakeFiles/ALL_BUILD.dir
-E:/source/Basic_programming_n_Cpp/Lesson_10/Task_1/build/CMakeFiles/ZERO_CHECK.dir
