@@ -1,5 +1,0 @@
-cmake_minimum_required(VERSION 3.22.0)
-project(Class_hierarchy_project VERSION 0.1 LANGUAGES CXX)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY E:/source/Basic_programming_n_Cpp/Lesson_10/Task_2)
-set(source_files Class_hierarchy.cpp Figure.cpp Equilateral_triangle.cpp Isosceles_triangle.cpp Parallelogram.cpp Quadrat.cpp Quadrilateral.cpp Rectangle.cpp Rhomb.cpp Right_angled_triangle.cpp Triangle.cpp)
-add_executable(Class_hierarchy_program ${source_files})
