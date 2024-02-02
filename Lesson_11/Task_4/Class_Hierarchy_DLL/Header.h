@@ -1,7 +1,7 @@
 #pragma once
 
-#ifdef DYNAMIC_LIBRARY_EXPORTS
-#define DYNAMIC_LIBRARY_API __declspec(dllimport)
+#ifdef CLASS_HIERARCHY_EXPORTS
+	#define CLASS_HIERARCHY_API __declspec(dllimport)
 #else
-#define DYNAMIC_LIBRARY_API __declspec(dllexport)
+	#define CLASS_HIERARCHY_API __declspec(dllexport)
 #endif

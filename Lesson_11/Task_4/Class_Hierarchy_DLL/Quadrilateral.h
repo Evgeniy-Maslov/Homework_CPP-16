@@ -12,7 +12,7 @@ namespace DynamicFigure
         Quadrilateral(int, int, int, int, int, int, int, int);
         bool check() override;
     public:
-        DYNAMIC_LIBRARY_API Quadrilateral();
+        CLASS_HIERARCHY_API Quadrilateral();
         void print_info() override;
     };
 }

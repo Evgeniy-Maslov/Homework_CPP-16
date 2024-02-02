@@ -12,6 +12,6 @@ namespace DynamicFigure
         bool check() override;
     public:
         void print_info() override;
-        DYNAMIC_LIBRARY_API Triangle();
+        CLASS_HIERARCHY_API Triangle();
     };
 }

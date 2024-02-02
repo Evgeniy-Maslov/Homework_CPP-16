@@ -11,6 +11,6 @@ namespace DynamicFigure
         bool check() override;
         void print_info() override;
     public:
-        DYNAMIC_LIBRARY_API Parallelogram();
+        CLASS_HIERARCHY_API Parallelogram();
     };
 }
