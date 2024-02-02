@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\source\Basic_programming_n_Cpp\Lesson_11\Task_3\source_files\Leaver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\source\Basic_programming_n_Cpp\Lesson_11\Task_3\source_files\Leaver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\source\Basic_programming_n_Cpp\Lesson_11\Task_3\source_files\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{AA5CA0CC-0F38-35AE-83E2-CFF91EA1381B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{DBE3ABC7-21FA-3099-9D80-C0FC3E934AB6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

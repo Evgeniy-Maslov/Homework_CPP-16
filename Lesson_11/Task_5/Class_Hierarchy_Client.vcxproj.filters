@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\source\Basic_programming_n_Cpp\Lesson_11\Task_5\source_files\ConsoleAppClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\source\Basic_programming_n_Cpp\Lesson_11\Task_5\source_files\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{836E8313-244E-364A-ADDC-DA64B286E78A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

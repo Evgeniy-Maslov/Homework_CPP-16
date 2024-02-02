@@ -1,5 +1,5 @@
-#include<iostream>
 #pragma once
+#include<string>
 
 class Figure
 {
