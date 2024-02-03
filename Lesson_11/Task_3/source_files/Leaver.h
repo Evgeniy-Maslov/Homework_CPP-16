@@ -1,9 +1,9 @@
 #pragma once
 #include<string>
-#ifdef DYNAMIC_LIBRARY_EXPORTS
-#define DYNAMIC_LIBRARY_API __declspec(dllimport)
+#ifdef Dynam_Lib_EXPORTS
+#define Dynam_Lib_API __declspec(dllexport)
 #else
-#define DYNAMIC_LIBRARY_API __declspec(dllexport)
+#define Dynam_Lib_API __declspec(dllimport)
 #endif
 
 namespace Dynam_Lib
@@ -11,6 +11,6 @@ namespace Dynam_Lib
 	class Leaver
 	{
 	public:
-		DYNAMIC_LIBRARY_API std::string Leave(std::string& a);
+		Dynam_Lib_API std::string Leave(std::string& a);
 	};
 }

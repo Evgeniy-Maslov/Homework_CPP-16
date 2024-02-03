@@ -9,8 +9,8 @@ namespace DynamicFigure
     protected:
         Quadrat(int);
         bool check() override;
-        void print_info() override;
+        Class_Hierarchy_DLL_API void print_info() override;
     public:
-        DYNAMIC_LIBRARY_API Quadrat();
+        Class_Hierarchy_DLL_API Quadrat();
     };
 }

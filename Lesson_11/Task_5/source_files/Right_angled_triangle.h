@@ -9,8 +9,8 @@ namespace DynamicFigure
     protected:
         Right_angled_triangle(int, int, int, int, int);
         bool check() override;
-        void print_info() override;
+        Class_Hierarchy_DLL_API void print_info() override;
     public:
-        DYNAMIC_LIBRARY_API Right_angled_triangle();
+        Class_Hierarchy_DLL_API Right_angled_triangle();
     };
 }

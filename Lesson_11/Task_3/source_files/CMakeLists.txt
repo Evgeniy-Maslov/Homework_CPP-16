@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22.0)
 project(CMake_Dynamic_Library VERSION 0.1 LANGUAGES CXX)
-set(LIBRARY_OUTPUT_NAME Dynamic_Library)
+set(LIBRARY_OUTPUT_NAME Dynam_Lib)
 add_library(${LIBRARY_OUTPUT_NAME} SHARED Leaver.h Leaver.cpp)
 set(PROJECT_NAME Dynam_Lib_Client)
 add_executable(${PROJECT_NAME} Dynam_Lib_Client.cpp)

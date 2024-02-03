@@ -173,13 +173,13 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
+    <ProjectReference Include="E:\source\Basic_programming_n_Cpp\Lesson_11\Task_3\Dynam_Lib.vcxproj">
+      <Project>{A00A11CE-7BA6-308A-8630-53CC5DC46FFE}</Project>
+      <Name>Dynam_Lib</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\source\Basic_programming_n_Cpp\Lesson_11\Task_3\Dynam_Lib_Client.vcxproj">
       <Project>{3E82554A-43B1-32D2-A1BB-6683014BEC19}</Project>
       <Name>Dynam_Lib_Client</Name>
-    </ProjectReference>
-    <ProjectReference Include="E:\source\Basic_programming_n_Cpp\Lesson_11\Task_3\Dynamic_Library.vcxproj">
-      <Project>{7822C892-D87D-3861-8DE5-15BBA34DD2E1}</Project>
-      <Name>Dynamic_Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

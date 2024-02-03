@@ -13,8 +13,8 @@ namespace DynamicFigure
         void get_name(std::string);
         Figure(int);
     public:
-        CLASS_HIERARCHY_API Figure();
-        virtual void print_info();
+        Class_Hierarchy_DLL_API Figure();
+        Class_Hierarchy_DLL_API virtual void print_info();
         virtual bool check();
     };
 }

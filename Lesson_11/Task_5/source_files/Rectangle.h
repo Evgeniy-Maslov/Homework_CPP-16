@@ -9,8 +9,8 @@ namespace DynamicFigure
     protected:
         Rectangle(int, int);
         bool check() override;
-        void print_info() override;
+        Class_Hierarchy_DLL_API void print_info() override;
     public:
-        DYNAMIC_LIBRARY_API Rectangle();
+        Class_Hierarchy_DLL_API Rectangle();
     };
 }

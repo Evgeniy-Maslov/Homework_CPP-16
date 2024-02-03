@@ -11,7 +11,7 @@ namespace DynamicFigure
         Triangle(int, int, int, int, int, int);
         bool check() override;
     public:
-        void print_info() override;
-        CLASS_HIERARCHY_API Triangle();
+        Class_Hierarchy_DLL_API void print_info() override;
+        Class_Hierarchy_DLL_API Triangle();
     };
 }

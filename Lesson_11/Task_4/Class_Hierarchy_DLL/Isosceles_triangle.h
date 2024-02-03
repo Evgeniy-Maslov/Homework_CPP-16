@@ -9,8 +9,8 @@ namespace DynamicFigure
     protected:
         Isosceles_triangle(int, int, int, int);
         bool check() override;
-        void print_info() override;
+        Class_Hierarchy_DLL_API void print_info() override;
     public:
-        CLASS_HIERARCHY_API Isosceles_triangle();
+        Class_Hierarchy_DLL_API Isosceles_triangle();
     };
 }

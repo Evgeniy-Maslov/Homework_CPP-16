@@ -1,7 +1,7 @@
 #pragma once
 
-#ifdef CLASS_HIERARCHY_EXPORTS
-	#define CLASS_HIERARCHY_API __declspec(dllimport)
+#ifdef Class_Hierarchy_DLL_EXPORTS
+#define Class_Hierarchy_DLL_API __declspec(dllexport)
 #else
-	#define CLASS_HIERARCHY_API __declspec(dllexport)
+#define Class_Hierarchy_DLL_API __declspec(dllimport)
 #endif

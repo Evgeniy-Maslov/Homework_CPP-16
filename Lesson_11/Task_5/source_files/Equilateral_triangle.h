@@ -9,8 +9,8 @@ namespace DynamicFigure
     protected:
         Equilateral_triangle(int, int);
         bool check() override;
-        void print_info() override;
+        Class_Hierarchy_DLL_API void print_info() override;
     public:
-        DYNAMIC_LIBRARY_API Equilateral_triangle();
+        Class_Hierarchy_DLL_API Equilateral_triangle();
     };
 }
