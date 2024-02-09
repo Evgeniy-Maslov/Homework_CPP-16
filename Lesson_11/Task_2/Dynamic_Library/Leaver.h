@@ -1,5 +1,5 @@
 #pragma once
-#include<string>
+#include <string>
 #ifdef Dynamic_Library_EXPORTS
 #define Dynamic_Library_API __declspec(dllexport)
 #else

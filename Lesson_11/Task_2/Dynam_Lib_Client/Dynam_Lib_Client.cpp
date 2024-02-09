@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include"Leaver.h"
+#include "Leaver.h"
 
 int main(int argc, char** argv)
 {

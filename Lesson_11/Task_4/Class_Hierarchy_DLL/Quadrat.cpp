@@ -1,4 +1,4 @@
-#include"Quadrat.h"
+#include "Quadrat.h"
 
 namespace DynamicFigure
 {

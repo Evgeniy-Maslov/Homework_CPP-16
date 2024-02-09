@@ -1,5 +1,5 @@
-#include<iostream>
-#include"Quadrilateral.h"
+#include <iostream>
+#include "Quadrilateral.h"
 
 namespace DynamicFigure
 {

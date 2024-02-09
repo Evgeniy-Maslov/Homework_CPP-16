@@ -1,6 +1,6 @@
 #pragma once
-#include"Parallelogram.h"
-#include"Header.h"
+#include "Parallelogram.h"
+#include "Header.h"
 
 namespace DynamicFigure
 {

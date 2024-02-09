@@ -1,4 +1,4 @@
-#include"Equilateral_triangle.h"
+#include "Equilateral_triangle.h"
 
 namespace DynamicFigure
 {

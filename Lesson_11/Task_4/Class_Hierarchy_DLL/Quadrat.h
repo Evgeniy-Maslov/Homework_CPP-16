@@ -1,6 +1,6 @@
 #pragma once
-#include"Rectangle.h"
-#include"Header.h"
+#include "Rectangle.h"
+#include "Header.h"
 
 namespace DynamicFigure
 {

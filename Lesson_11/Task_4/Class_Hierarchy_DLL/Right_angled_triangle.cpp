@@ -1,4 +1,4 @@
-#include"Right_angled_triangle.h"
+#include "Right_angled_triangle.h"
 
 namespace DynamicFigure
 {

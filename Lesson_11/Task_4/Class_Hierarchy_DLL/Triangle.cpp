@@ -1,5 +1,5 @@
-#include<iostream>
-#include"Triangle.h"
+#include <iostream>
+#include "Triangle.h"
 
 namespace DynamicFigure
 {

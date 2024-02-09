@@ -1,4 +1,4 @@
-#include"Isosceles_triangle.h"
+#include "Isosceles_triangle.h"
 
 namespace DynamicFigure
 {

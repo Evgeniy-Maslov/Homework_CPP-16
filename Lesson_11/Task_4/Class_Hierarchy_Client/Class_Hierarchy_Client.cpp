@@ -1,8 +1,8 @@
-﻿#include"Equilateral_triangle.h"
-#include"Isosceles_triangle.h"
-#include"Right_angled_triangle.h"
-#include"Rhomb.h"
-#include"Quadrat.h"
+﻿#include "Equilateral_triangle.h"
+#include "Isosceles_triangle.h"
+#include "Right_angled_triangle.h"
+#include "Rhomb.h"
+#include "Quadrat.h"
 
 int main(int argc, char** argv)
 {

@@ -1,4 +1,4 @@
-#include"Parallelogram.h"
+#include "Parallelogram.h"
 
 namespace DynamicFigure
 {

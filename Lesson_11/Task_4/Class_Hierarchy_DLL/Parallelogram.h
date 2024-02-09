@@ -1,6 +1,6 @@
 #pragma once
-#include"Quadrilateral.h"
-#include"Header.h"
+#include "Quadrilateral.h"
+#include "Header.h"
 
 namespace DynamicFigure
 {
