@@ -32,8 +32,11 @@ int main(int argc, char** argv)
 	{
 		out_select_type_of_race(a);
 		type_race = select_type_of_race(a);
-		std::cout << "Specify the length of the distance (the length must be positive): ";
-		std::cin >> L;
+		do 
+		{
+			std::cout << "Specify the length of the distance (the length must be positive): ";
+			std::cin >> L;
+		} while (L <= 0);
 		Broom broom(L);
 		Eagle eagle(L);
 		FlyingCarpet fly_car(L);
