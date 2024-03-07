@@ -11,8 +11,8 @@ int main(int argc, char** argv)
     int size_pyramid_1 = sizeof(pyramid_1) / sizeof(int);
     int size_pyramid_2 = sizeof(pyramid_2) / sizeof(int);
     std::string command;
-
     int index{};
+
     Source_array(pyramid_0, size_pyramid_0);
     std::cout << "Pyramid:\n";
     for (int i = 0; i < size_pyramid_0; i++)
@@ -29,8 +29,9 @@ int main(int argc, char** argv)
         Travel_po_pyramide(command, pyramid_0, index, size_pyramid_0);
     }
     
-    
-    //index = 0;
+    /*
+      // МАССИВ pyramid_1
+    index = 0;
     command = " ";
     Source_array(pyramid_1, size_pyramid_1);
     std::cout << "Pyramid:\n";
@@ -47,9 +48,12 @@ int main(int argc, char** argv)
         std::cin >> command;
         Travel_po_pyramide(command, pyramid_1, index, size_pyramid_1);
     }
+    */
 
 
-    //index = 0;
+    /*
+       // МАССИВ pyramid_2
+    index = 0;
     command = " ";
     Source_array(pyramid_2, size_pyramid_2);
     std::cout << "Pyramid:\n";
@@ -66,6 +70,8 @@ int main(int argc, char** argv)
         std::cin >> command;
         Travel_po_pyramide(command, pyramid_2, index, size_pyramid_2);
     }
+    */
 
+    
     return 0;
 }
