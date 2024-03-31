@@ -1,11 +1,17 @@
 #include "smart_array.h"
 #include <format>
 
-smart_array::smart_array(int size) : size_{size}, array_ptr{new int[size]}, logical_size{0} {}
+smart_array::smart_array(int size) : size_{size}, array_ptr{new int[size]()}, logical_size{0} {}
 
-smart_array::smart_array(const smart_array& arr) : size_{arr.size_}, array_ptr{new int[arr.size_]}, logical_size{0}
+smart_array::smart_array(const smart_array& arr)
 {
-    *array_ptr = *(arr.array_ptr);
+    size_ = arr.size_;
+    logical_size = arr.logical_size;
+    array_ptr = new int[size_]();
+    for (int i = 0; i < logical_size; i++)
+    {
+        array_ptr[i] = (arr.array_ptr[i]);
+    }
 }
 
 smart_array& smart_array::operator=(const smart_array& other)
@@ -17,8 +23,8 @@ smart_array& smart_array::operator=(const smart_array& other)
     delete[] array_ptr;
     size_ = other.size_;
     logical_size = other.logical_size;
-    array_ptr = new int[size_];
-    for (int i = 0; i < size_; i++)
+    array_ptr = new int[size_]();
+    for (int i = 0; i < logical_size; i++)
     {
         array_ptr[i] = other.array_ptr[i];
     }
@@ -34,20 +40,22 @@ void smart_array::add_element(int x)
     else
     {
         size_ *= 2;
-        int* temp_arr = new int[size_]();
+        smart_array temp_arr(*this);
+       /* int* temp_arr = new int[size_]();
         for (int i = 0; i < logical_size; i++)
         {
             temp_arr[i] = array_ptr[i];
-        }
-        temp_arr[logical_size] = x;
-        logical_size++;
-        delete[] array_ptr;
-        array_ptr = new int[size_]();
+        } */
+        temp_arr.add_element(x);
+        //temp_arr.logical_size++;
+        //delete[] array_ptr;
+        *this = temp_arr;
+       /* array_ptr = new int[size_]();
         for (int i = 0; i < logical_size; i++)
         {
             array_ptr[i] = temp_arr[i];
-        }
-        delete[] temp_arr;
+        }*/
+        //delete[] temp_arr;
     }
 }
 
