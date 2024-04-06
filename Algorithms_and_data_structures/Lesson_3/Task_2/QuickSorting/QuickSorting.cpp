@@ -17,59 +17,42 @@ void print_arr(int* arr, int size)
     std::cout << std::endl;
 }
 
-//int pivoting(int* arr, int pi, int size)
-//{
-//    int pivot = arr[pi];
-//    int left = 0;
-//    int right = size - 1;
-//    while (true)
-//    {
-//        while (arr[left] < pivot)
-//            ++left;
-//        while (arr[right] > pivot)
-//            --right;
-//        if (left >= right)
-//            return left;
-//        //break;
-//        else
-//        {
-//            swap(arr, left, right);
-//            ++left;
-//            --right;
-//        }
-//
-//    }
-//}
+int pivoting(int* arr, int low, int high)
+{
+    int pi = high / 2;
+    int pivot = arr[pi];
+    //std::cout << pivot << "\n";
+    int left = low;
+    int right = high;
+    while (true)
+    {
+        while (arr[left] < pivot)
+            ++left;
+        while (arr[right] > pivot)
+            --right;
+        if (left >= right)
+            return left;
+        //break;
+        else
+        {
+            swap(arr, left, right);
+            ++left;
+            --right;
+        }
 
-void quick_sort(int* arr, int size)
+    }
+}
+
+void quick_sort(int* arr,int low, int size)
 {
     if (size < 2)
         return;
     else
     {
-        int pi = size / 2;
-        //int border = pivoting(arr, pi, size);
-        int pivot = arr[pi];
-        int left = 0;
-        int i = left;
-        int right = size - 1;
-        int j = right;
-        //int right_border = size;
-
-        do
-        {
-            while (arr[i] <= pivot) { ++i; }
-            while (arr[j] > pivot) { --j; }
-            if (i <= j)
-            {
-                swap(arr, i, j);
-                ++i;
-                --j;
-            }
-        } while (i <= j);
-                //swap(arr, pi, left);
-        if (left < j) quick_sort(arr, i );
-        if (i < right) quick_sort(arr + i , size - i);
+        //int pi = size / 2;
+        int border = pivoting(arr, low, size); 
+        quick_sort(arr, low, border);
+        quick_sort(arr, border + 1, );
                 //break;
         
         
@@ -79,34 +62,36 @@ void quick_sort(int* arr, int size)
 
 int main(int argc, char** argv)
 {
-    int arr_0[] = { 3, 43, 38, 29,  72, 18, 57 };
+    //int arr_0[] = { 3, 43, 38, 29,  72, 18, 57 };
     int arr_1[] = { 88, 91, 87, 59, 53, 49, 29, 16, 4, 27, 28, 89, 2, 25, 74 };
-    int arr_2[] = { 24, 66, 20, 79, 30, 16, 19, 62, 94, 59, 0, 7, 59, 90, 84, 60, 95, 62 };
-    int size_0 = sizeof(arr_0) / sizeof(int);
+   // int arr_2[] = { 24, 66, 20, 79, 30, 16, 19, 62, 94, 59, 0, 7, 59, 90, 84, 60, 95, 62 };
+    //int size_0 = sizeof(arr_0) / sizeof(int);
     int size_1 = sizeof(arr_1) / sizeof(int);
-    int size_2 = sizeof(arr_2) / sizeof(int);
+  //  int size_2 = sizeof(arr_2) / sizeof(int);
 
     std::cout << "Source array: ";
-    print_arr(arr_0, size_0);
-    quick_sort(arr_0, size_0);
+    print_arr(arr_1, size_1);
+    //int a = pivoting(arr_1, size_1);
+
+    quick_sort(arr_1, 0, size_1);
     std::cout << "Sorted array: ";
-    print_arr(arr_0, size_0);
+    print_arr(arr_1, size_1);
     std::cout << std::endl;
-   
+    //std::cout << arr_1[a];
 
-    std::cout << "Source array: ";
+   /* std::cout << "Source array: ";
     print_arr(arr_1, size_1);
     quick_sort(arr_1, size_1);
     std::cout << "Sorted array: ";
     print_arr(arr_1, size_1);
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
-    std::cout << "Source array: ";
+    /*std::cout << "Source array: ";
     print_arr(arr_2, size_2);
     quick_sort(arr_2, size_2);
     std::cout << "Sorted array: ";
     print_arr(arr_2, size_2);
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
 
     

@@ -41,21 +41,8 @@ void smart_array::add_element(int x)
     {
         size_ *= 2;
         smart_array temp_arr(*this);
-       /* int* temp_arr = new int[size_]();
-        for (int i = 0; i < logical_size; i++)
-        {
-            temp_arr[i] = array_ptr[i];
-        } */
         temp_arr.add_element(x);
-        //temp_arr.logical_size++;
-        //delete[] array_ptr;
         *this = temp_arr;
-       /* array_ptr = new int[size_]();
-        for (int i = 0; i < logical_size; i++)
-        {
-            array_ptr[i] = temp_arr[i];
-        }*/
-        //delete[] temp_arr;
     }
 }
 
