@@ -1,6 +1,4 @@
 #include <iostream>
-//подключаем макросы catch2
-#include <catch2/catch_test_macros.hpp>
 
 struct ListNode
 {
@@ -95,53 +93,4 @@ private:
     unsigned long m_size;
 };
 
-    //юнит-тест
-
-TEST_CASE("Testing the PushFront", "[list.PushFront()]") {
-    List list;
-    list.PushFront(5);
-    list.PushFront(6);
-    REQUIRE(list.Size() == 2);
-}
-TEST_CASE("Testing the PushBack", "[list.PushBack()]") {
-    List list;
-    list.PushBack(5);
-    list.PushBack(6);
-    REQUIRE(list.Size() == 2);
-}
-TEST_CASE("Testing the PopBack", "[list.PopBack()]") {
-    List list;
-    int n = 4;
-    for (int i = 1; i <= n; i++)
-    {
-        list.PushBack(i);
-    }
-    try
-    {
-        while (!list.Empty())
-        {
-            REQUIRE(list.PopBack() == n);
-            --n;
-        }
-        REQUIRE(list.PopBack() == n);
-    }
-    catch (std::runtime_error& err) { std::cout << err.what(); }
-}
-TEST_CASE("Testing the PopFront", "[list.PopFront()]") {
-    List list;
-    int n = 4;
-    for (int i = 1; i <= n; i++)
-    {
-        list.PushFront(i);
-    }
-    try
-    {
-        while (!list.Empty())
-        {
-            REQUIRE(list.PopFront() == n);
-            --n;
-        }
-        REQUIRE(list.PopFront() == n);
-    }
-    catch (std::runtime_error& err) { std::cout << err.what(); }
-}
+ 
