@@ -21,6 +21,21 @@ public:
 			table_ptr_[i] = new T[j_];
 		}
 	}
+
+	table(const table<T>& other) {
+		i_ = other.i_;
+		j_ = other.j_;
+		table_ptr_ = new T * [i_];
+		for (unsigned i = 0; i < i_; i++)
+		{
+			table_ptr_[i] = new T[j_];
+			for (unsigned j = 0; j < j_; j++)
+			{
+				table_ptr_[i][j] = other.table_ptr_[i][j];
+			}
+		}
+	}
+
 	void print()
 	{
 		for (unsigned i = 0; i < i_; i++)
@@ -53,6 +68,22 @@ public:
 		}
 		delete[] table_ptr_;
 	}	
+
+	table<T>& operator = (const table<T>& other){
+		this->~table();
+		i_ = other.i_;
+		j_ = other.j_;
+		table_ptr_ = new T * [i_];
+		for (unsigned i = 0; i < i_; i++)
+		{
+			table_ptr_[i] = new T[j_];
+			for (unsigned j = 0; j < j_; j++)
+			{
+				table_ptr_[i][j] = other.table_ptr_[i][j];
+			}
+		}
+		return *this;
+	}
 };
 
 template<class T>

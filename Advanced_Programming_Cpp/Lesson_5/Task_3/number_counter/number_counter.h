@@ -4,14 +4,14 @@
 
 class number_counter
 {
-	std::vector<int> m_vec;
-	int m_sum;
-	int m_count;
+	int m_value;
+	int m_sum{0};
+	int m_count{0};
+public:
 	int get_sum();
 	int get_count();
-public:
-	number_counter(std::vector<int>);
-	void operator()();
+	number_counter();
+	void operator()(const int& i);
 };
 
 std::ostream& operator<<(std::ostream& os, const std::vector<int>& c);

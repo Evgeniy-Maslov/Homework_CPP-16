@@ -17,12 +17,14 @@ void print(std::vector<Pr_V>& value) {
 
 
 template<class T>
-void pow_2(T& a) {
-     a *= a;
+T pow_2(const T& a) {
+     return  a * a;
 }
 template<class V>
-void pow_2(std::vector<V>&a) {
-    std::for_each(a.begin(), a.end(), [](V& i) {i *= i; });   
+std::vector<V> pow_2(const std::vector<V>& a) {
+    std::vector<V> b = a;
+    std::for_each(b.begin(), b.end(), [](V& i) {i *= i;});
+    return b;
 }
 
 int main()
@@ -32,17 +34,17 @@ int main()
     std::cout << "[IN]: ";
     print(n);
     std::cout << std::endl;
-    pow_2(n);
+    int b = pow_2(n);
     std::cout << "[OUT]: ";
-    print(n);
+    print(b);
     std::cout << std::endl;
     
     std::cout << "[IN]: ";
     print(vec);
     std::cout << std::endl;
-    pow_2(vec);
+    std::vector<int> vec_b = pow_2(vec);
     std::cout << "[OUT]: ";
-    print(vec);
+    print(vec_b);
     std::cout << std::endl;
     
     return 0;
