@@ -18,7 +18,7 @@ public:
 		table_ptr_ = new T * [i_];
 		for (unsigned i = 0; i < i_; i++)
 		{
-			table_ptr_[i] = new T[j_];
+			table_ptr_[i] = new T[j_]{0};
 		}
 	}
 
