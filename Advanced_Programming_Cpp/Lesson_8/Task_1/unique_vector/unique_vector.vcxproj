@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{370b3182-e5c9-4942-80ee-ce3506af5f5b}</ProjectGuid>
-    <RootNamespace>removingduplicates</RootNamespace>
+    <ProjectGuid>{79847087-12ab-430a-8cda-049c78ef285c}</ProjectGuid>
+    <RootNamespace>uniquevector</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,10 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="removing_duplicates.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="data.txt" />
+    <ClCompile Include="unique_vector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

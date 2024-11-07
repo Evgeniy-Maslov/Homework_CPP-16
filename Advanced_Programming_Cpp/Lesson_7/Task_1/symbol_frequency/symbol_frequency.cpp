@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <fstream>
 #include <string>
 #include <map>
 #include <algorithm>
@@ -9,9 +10,16 @@ int main(int argc, char** argv)
 {
     std::string phrase;// = "Hello world!!";
     std::cout << "[IN]: ";
-    std::getline(std::cin, phrase);
-    //std::cin.;
-
+    std::ifstream fin("data.txt");
+    if (fin.is_open()) {
+        std::getline(fin, phrase);
+    }
+    else {
+        std::cout << "failed to open file!\n";
+        return 1;
+    }
+    fin.close();
+    std::cout << phrase << "\n";
     std::map<char, unsigned> num_of_char;
     std::for_each(phrase.begin(), phrase.end(), [&](char& i) {
         if (num_of_char[i]) {

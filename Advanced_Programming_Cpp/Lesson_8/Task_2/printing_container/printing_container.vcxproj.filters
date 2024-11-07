@@ -15,13 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="removing_duplicates.cpp">
+    <ClCompile Include="printing_container.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="data.txt">
+    <ClInclude Include="Header.h">
       <Filter>Файлы ресурсов</Filter>
-    </Text>
+    </ClInclude>
   </ItemGroup>
 </Project>
