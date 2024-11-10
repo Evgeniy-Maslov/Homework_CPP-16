@@ -66,11 +66,19 @@ public:
 		return logic_size_;
 	}
 
-		auto capacity() {				// количество элементов, которое может вместить контейнер до нового выделения памяти.
-		return actual_size_;
+	auto capacity() {				// количество элементов, которое может вместить контейнер до нового выделения памяти.
+	return actual_size_;
+	}
+
+	friend void operator << (std::ostream& os, std_vector & v) {
+		v.print_vec();
 	}
 
 	~std_vector() {
 		delete[] vector_ptr;
 	}
 };
+
+//std::ostream& ooerator << (std::ostream & os, std_vector & v) {
+//
+//}
