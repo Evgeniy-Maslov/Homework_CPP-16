@@ -20,7 +20,7 @@ public:
     big_integer(const big_integer& x) : number_(new std::vector<int>) {
         *number_ = *x.number_;
     }
-    big_integer(big_integer&& x) : number_(x.number_) {
+    big_integer(big_integer&& x) noexcept : number_(x.number_) {
         x.number_ = nullptr;
     }
     big_integer& operator = (const big_integer& x) {
@@ -32,7 +32,7 @@ public:
         *number_ = *x.number_;
         return *this;
     }
-    big_integer& operator = (big_integer&& x) {
+    big_integer& operator = (big_integer&& x) noexcept {
         if (&x == this) {
             return *this;
         }
