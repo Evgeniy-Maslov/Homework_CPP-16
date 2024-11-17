@@ -56,7 +56,7 @@ public:
                 temp.number_->data()[i + 1]++;
             }
         }
-        return temp;
+        return std::move(temp);
     }
     big_integer operator - (const big_integer& other) {
         big_integer temp = *this;
@@ -72,7 +72,7 @@ public:
                 temp.number_->data()[i + 1]--;
             }
         }
-        return temp;
+        return std::move(temp);
     }
     big_integer operator * (const int& x) {
         big_integer temp = *this;
@@ -92,7 +92,7 @@ public:
                 temp.number_->data()[i] %= base;
             }
         }
-        return temp;
+        return std::move(temp);
     }
     big_integer operator * (const big_integer& other) {
         big_integer temp(number_->size() + other.number_->size() - 1);
@@ -114,7 +114,7 @@ public:
                 temp.number_->data()[i] %= base;
             }
         }
-        return temp;
+        return std::move(temp);
     }
     int pow_(int a, int x) {
         int b = a;
