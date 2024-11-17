@@ -19,4 +19,7 @@ int main()
     //std::cout << *ptr_2 << "\n";
 
     return 0;
+<<<<<<< HEAD
 }
+=======
+>>>>>>> ad2c54aae23fa16607031002bf2ebfb63e7f1132
