@@ -129,6 +129,7 @@ public:
 			std::cout << "\t" << it->first << std::endl;
 		}
 	}
+	~IniParser() = default;
 };
 
 
