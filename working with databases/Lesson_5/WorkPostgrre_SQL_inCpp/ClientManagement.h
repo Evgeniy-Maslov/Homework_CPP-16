@@ -6,7 +6,7 @@
 class ClientManagement {
 public:
 	ClientManagement();
-	void ÑreateDB(pqxx::connection&);
+	void CreateDB(pqxx::connection&);
 	void PrintDBClients(pqxx::connection&);
 	void AddNewClient(pqxx::connection&);
 	void AddPhoneForExistingClient(pqxx::connection&);

@@ -4,20 +4,24 @@
 
 
 ClientManagement::ClientManagement()  {}
-void ClientManagement::ÑreateDB(pqxx::connection& cx) {
-	try {
-		pqxx::work tx(cx);
-		tx.exec("CREATE TABLE IF NOT EXISTS Client( "
-			"Client_id SERIAL PRIMARY KEY, "
-			"first_name VARCHAR(60) NOT NULL, "
-			"last_name VARCHAR(60) NOT NULL, "
-			"email VARCHAR(60) NOT NULL UNIQUE)");
+void ClientManagement::CreateDB(pqxx::connection& cx) {
+	pqxx::work tx(cx);
+	int count_id{};
+	tx.exec("CREATE TABLE IF NOT EXISTS Client( "
+		"Client_id SERIAL PRIMARY KEY, "
+		"first_name VARCHAR(60) NOT NULL, "
+		"last_name VARCHAR(60) NOT NULL, "
+		"email VARCHAR(60) NOT NULL UNIQUE)");
 
-		tx.exec("CREATE TABLE IF NOT EXISTS Phone( "
-			"number_phone_id SERIAL PRIMARY KEY, "
-			"number_phone NUMERIC UNIQUE, "
-			"client_id INTEGER REFERENCES Client ON DELETE CASCADE)");
+	tx.exec("CREATE TABLE IF NOT EXISTS Phone( "
+		"number_phone_id SERIAL PRIMARY KEY, "
+		"number_phone NUMERIC UNIQUE, "
+		"client_id INTEGER REFERENCES Client ON DELETE CASCADE)");
 
+	for (auto [it] : tx.query<int>("SELECT COUNT(client_id) FROM Client ")){
+		count_id = it;
+	}
+	if (count_id == 0) {
 		tx.exec("INSERT INTO Client (first_name, last_name, email) VALUES "
 			"('Evgeniy', 'Maslov', 'evgeniy@mail.ru'), "
 			"('Ivan', 'Petrov', 'one_ivan@mail.ru'), "
@@ -33,12 +37,8 @@ void ClientManagement::ÑreateDB(pqxx::connection& cx) {
 			"('45678901', '4'), "
 			"('56789012', '4'), "
 			"('67890123', '5');");
-		tx.commit();
 	}
-	catch(std::exception const& ex) {
-		std::cout << "CreateDB " << ex.what() << std::endl;
-	}
-	std::cout << "The database has been created \n\n";
+	tx.commit();
 }
 
 void ClientManagement::PrintDBClients(pqxx::connection& cx) {

@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
 			"user=postgres "
 			"password=qwerty");
 		ClientManagement CM;
-		CM.ÑreateDB(cx);
+		CM.CreateDB(cx);
 		CM.PrintDBClients(cx);
 		pause(x);
 		CM.AddNewClient(cx);
