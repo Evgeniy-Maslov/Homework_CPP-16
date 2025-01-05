@@ -141,7 +141,6 @@ int main(int argc, char** argv) {
 			std::cin >> n_client_id;
 			ClusterDeletePhone(CM, cx, f_name, l_name, n_client_id, n_number_phone_id);
 		}
-		std::cout << "Phone deleted.\n\n";
 		CM.PrintDBClients(cx);
 		pause(x);
 
@@ -196,7 +195,6 @@ int main(int argc, char** argv) {
 				std::cin >> n_client_id;
 				ClusterChangePhone(CM, cx, f_name, l_name, n_client_id, n_number_phone_id);
 			}
-			std::cout << "Phone number updated.\n\n";
 		}
 		CM.PrintDBClients(cx);
 		pause(x);
