@@ -54,7 +54,7 @@ int main()
             try {
                 switch (lifecycle){
                 case 1: {
-                    session.dropTables();
+                    //session.dropTables();
                     session.createTables();
                     break;
                 }
