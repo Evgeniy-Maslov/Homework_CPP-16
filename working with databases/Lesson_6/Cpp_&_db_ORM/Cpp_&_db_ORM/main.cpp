@@ -1,6 +1,6 @@
 ﻿#include <Wt/Dbo/backend/Postgres.h>
 #include <Wt/Dbo/Dbo.h>
-#include "tables_&_foo.h"
+#include "TablesFoo.h"
 #include <iostream>
 #include <string>
 #include <Windows.h>
@@ -54,7 +54,7 @@ int main()
             try {
                 switch (lifecycle){
                 case 1: {
-                    //session.dropTables();
+                    session.dropTables();
                     session.createTables();
                     break;
                 }
@@ -86,8 +86,6 @@ int main()
     catch (const std::exception& ex) {
         std::cout << "Conection failed  " << ex.what() << std::endl;
     }
-
-
     return 0;
 }
 
