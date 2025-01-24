@@ -43,22 +43,23 @@ public:
 
 void swap(Data& D1, Data& D2)
 {
-	D1._mtx().lock();
-	D2._mtx().lock();
+	std::lock(D1._mtx(), D2._mtx());
+	std::lock_guard(D1._mtx(), std::adopt_lock);
+	std::lock_guard(D2._mtx(), std::adopt_lock);
 	Data temp(D1);
 	D1 = D2;
 	D2 = temp;
-	D1._mtx().unlock();
-	D2._mtx().unlock();
 }
 
 void swap_1(Data& D1, Data& D2)
 {
-	std::unique_lock<std::mutex> lk1(D1._mtx());
-	std::unique_lock<std::mutex> lk2(D2._mtx());
+	std::unique_lock<std::mutex> lk1(D1._mtx(), std::defer_lock);
+	std::unique_lock<std::mutex> lk2(D2._mtx(), std::defer_lock);
+	std::lock(lk1, lk2);
 	Data temp(D1);
 	D1 = D2;
 	D2 = temp;
+	
 }
 
 void swap_2(Data& D1, Data& D2)
