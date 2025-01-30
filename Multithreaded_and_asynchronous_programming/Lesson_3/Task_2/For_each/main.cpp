@@ -1,6 +1,7 @@
 #include <iostream>
 #include <future>
 #include <thread>
+#include <vector>
 
 
 template<typename Iterator, typename Func>
@@ -48,12 +49,12 @@ int main()
 {
 	std::vector<int> V{ 1,2,3,4,5,6,7,8,9,10 };
 
-	for_each(V.begin(), V.end(), ptr_print);
+	std_for_each(V.begin(), V.end(), ptr_print);
 	std::cout << "\n\n";
 
 	parallel_for_each(V.begin(), V.end(), ptr_Func);
 
-	for_each(V.begin(), V.end(), ptr_print);
+	std_for_each(V.begin(), V.end(), ptr_print);
 	std::cout << "\n";
 
 	return 0;
