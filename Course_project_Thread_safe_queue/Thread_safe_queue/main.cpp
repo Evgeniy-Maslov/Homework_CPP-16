@@ -101,7 +101,6 @@ public:
 };
 
 
-
 void func_1()
 {
 	std::cout << "func_1 - ";
