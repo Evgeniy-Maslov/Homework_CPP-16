@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Class_hierarchy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Figure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Equilateral_triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Isosceles_triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Parallelogram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Quadrat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Quadrilateral.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Rectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Rhomb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Right_angled_triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Figure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Equilateral_triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Isosceles_triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Parallelogram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Quadrat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Quadrilateral.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Rectangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Rhomb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Right_angled_triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\Triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\source\Homework_CPP-16\3_Basic_programming_n_Cpp\Lesson_10\Task_2\source_files\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{DA0F498A-E718-32FE-A2D0-665F5FDFAF43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{94EFAF64-83FB-3DF9-B5E4-1128D4B263CA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

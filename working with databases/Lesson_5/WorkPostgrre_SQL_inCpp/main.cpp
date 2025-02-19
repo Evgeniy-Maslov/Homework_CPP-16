@@ -15,8 +15,8 @@ void pause(char& x) {
 }
 
 int main(int argc, char** argv) {
-	SetConsoleCP(65001); 
-	SetConsoleOutputCP(65001);
+	SetConsoleCP(1251);//(65001);
+	SetConsoleOutputCP(1251);//(65001);
 	std::string f_name{};
 	std::string l_name{};
 	std::string email{};

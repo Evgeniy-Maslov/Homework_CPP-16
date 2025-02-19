@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 project(WorkPostgrre_SQL_inCpp)
-add_executable(${PROJECT_NAME} 
+add_executable(${PROJECT_NAME}
 main.cpp
-ClientManagement.cpp 
+ClientManagement.cpp
 ClientManagement.h
 functions.cpp
 functions.h)
