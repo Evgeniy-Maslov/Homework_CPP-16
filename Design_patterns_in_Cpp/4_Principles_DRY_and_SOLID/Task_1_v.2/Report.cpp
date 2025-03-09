@@ -55,5 +55,6 @@ public:
         arr_elements.push_back(_reprter_name);
         return arr_elements;
     }
+    ~Report_v3() = default;
 };
 
