@@ -1,7 +1,10 @@
-#include <string>
+п»ї#include <string>
 #include <fstream>
 #include <vector>
 #include <iostream>
+#include "Report.cpp"
+
+
 
 namespace Format
 {
@@ -10,7 +13,6 @@ namespace Format
     format kHTML = 1;
     format kJSON = 2;
 }
-
 
 class Printer {
 public:
@@ -36,7 +38,7 @@ public:
         else if (_next != nullptr)
         {
             return _next->wrap_element(data, format);
-            
+
         }
         else
         {
@@ -44,7 +46,7 @@ public:
         }
     }
     std::string wrap_report(const std::vector<std::string>& elements, Format::format format) const override {
-        //TODO: склейка элементов через новую строку и оборачивание в html-тег
+        //TODO: СЃРєР»РµР№РєР° СЌР»РµРјРµРЅС‚РѕРІ С‡РµСЂРµР· РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ Рё РѕР±РѕСЂР°С‡РёРІР°РЅРёРµ РІ html-С‚РµРі
         if (format == Format::kHTML)
         {
             std::string _report{};
@@ -82,7 +84,7 @@ public:
         else if (_next != nullptr)
         {
             return _next->wrap_element(data, format);
-            
+
         }
         else
         {
@@ -90,7 +92,7 @@ public:
         }
     }
     std::string wrap_report(const std::vector<std::string>& elements, Format::format format) const override {
-        //TODO: склейка элементов через , и оборачивание в массив - [ elem1, elem2 ]
+        //TODO: СЃРєР»РµР№РєР° СЌР»РµРјРµРЅС‚РѕРІ С‡РµСЂРµР· , Рё РѕР±РѕСЂР°С‡РёРІР°РЅРёРµ РІ РјР°СЃСЃРёРІ - [ elem1, elem2 ]
         if (format == Format::kJSON)
         {
             std::string _report{};
@@ -134,7 +136,7 @@ public:
         }
     }
     std::string wrap_report(const std::vector<std::string>& elements, Format::format format) const override {
-        //TODO: склейка элементов через новую строку
+        //TODO: СЃРєР»РµР№РєР° СЌР»РµРјРµРЅС‚РѕРІ С‡РµСЂРµР· РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ
         if (format == Format::kText)
         {
             std::string _report{};
@@ -155,24 +157,28 @@ public:
     }
 };
 
-class PrintDataProcessor
+class ReportHandler
 {
 public:
-    PrintDataProcessor()
+    ReportHandler()
     {
         set_chain_sequence();
     }
 
-    std::string printer(std::string data, Format::format format )
+    std::string printer(Report* report, Format::format format)
     {
-        set_fields(data, {}, format);
-        return print_format[0]->wrap_element(_data, _format);
+        if(report->get_report().size() == 1)
+        {
+            _data = std::move(report->get_report()[0]);
+            return print_format[0]->wrap_element(_data, format);
+        }
+        else
+        {
+            _arr_data = std::move(report->get_report());
+            return print_format[0]->wrap_report(_arr_data, format);
+        }
     }
-    std::string printer(std::vector<std::string> arr_data, Format::format format)
-    {
-        set_fields({}, arr_data, format);
-        return print_format[0]->wrap_report(_arr_data, _format);
-    }
+
 private:
     std::vector<Printer*> print_format
     {
@@ -180,16 +186,8 @@ private:
         new PrinterHTML(),
         new PrinterJSON()
     };
-    Format::format _format{};
     std::string _data;
     std::vector<std::string> _arr_data;
-
-    void set_fields(std::string data, std::vector<std::string> arr_data, Format::format format)
-    {
-        _data = std::move(data);
-        _arr_data = std::move(arr_data);
-        _format = format;
-    }
 
     void set_chain_sequence()
     {
@@ -201,31 +199,42 @@ private:
 };
 
 
+
 int main()
 {
     std::ofstream file("file.txt");
-    std::string data("Hello World.");
-    std::vector<std::string> arr_data{ "hello", "world", "Chain of Responsibility", "Single responsibility principle" };
-    
-    PrintDataProcessor report;
+
+    Report* report_V1 = new Report_v1();
+    Report* report_V2 = new Report_v2();
+    Report* report_V3 = new Report_v3();
+ 
+    ReportHandler report;
     try
     {
-        file << report.printer(data, Format::kHTML) << std::endl;
+        file << report.printer(report_V1, Format::kHTML) << std::endl;
         file << std::endl;
-        file << report.printer(data, Format::kText) << std::endl;
+        file << report.printer(report_V1, Format::kText) << std::endl;
         file << std::endl;
-        file << report.printer(data, Format::kJSON) << std::endl;
+        file << report.printer(report_V1, Format::kJSON) << std::endl;
         file << std::endl;
         file << std::endl;
-        file << report.printer(arr_data, Format::kHTML) << std::endl;
+        file << report.printer(report_V2, Format::kHTML) << std::endl;
         file << std::endl;
-        file << report.printer(arr_data, Format::kText) << std::endl;
+        file << report.printer(report_V2, Format::kText) << std::endl;
         file << std::endl;
-        file << report.printer(arr_data, Format::kJSON) << std::endl;
+        file << report.printer(report_V2, Format::kJSON) << std::endl;
+        file << std::endl;
+        file << std::endl;
+        file << report.printer(report_V3, Format::kHTML) << std::endl;
+        file << std::endl;
+        file << report.printer(report_V3, Format::kText) << std::endl;
+        file << std::endl;
+        file << report.printer(report_V3, Format::kJSON) << std::endl;
     }
-    catch(std::runtime_error& err)
+    catch (std::runtime_error& err)
     {
         std::cout << err.what() << std::endl;
     }
+
     return 0;
-}
+}; 
