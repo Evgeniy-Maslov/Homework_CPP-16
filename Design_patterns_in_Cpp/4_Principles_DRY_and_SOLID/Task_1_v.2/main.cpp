@@ -165,7 +165,7 @@ public:
         set_chain_sequence();
     }
 
-    std::string printer(Report* report, Format::format format)
+    std::string printer(std::unique_ptr<Report>& report, Format::format format)
     {
         if(report->get_report().size() == 1)
         {
@@ -203,14 +203,15 @@ private:
 int main()
 {
     std::ofstream file("file.txt");
+    std::unique_ptr<Report> report_V1 = std::make_unique<Report_v1>();
+    std::unique_ptr<Report> report_V2 = std::make_unique<Report_v2>();
+    std::unique_ptr<Report> report_V3 = std::make_unique<Report_v3>();
 
-    Report* report_V1 = new Report_v1();
-    Report* report_V2 = new Report_v2();
-    Report* report_V3 = new Report_v3();
- 
     ReportHandler report;
     try
     {
+        
+
         file << report.printer(report_V1, Format::kHTML) << std::endl;
         file << std::endl;
         file << report.printer(report_V1, Format::kText) << std::endl;
@@ -230,6 +231,7 @@ int main()
         file << report.printer(report_V3, Format::kText) << std::endl;
         file << std::endl;
         file << report.printer(report_V3, Format::kJSON) << std::endl;
+      
     }
     catch (std::runtime_error& err)
     {
