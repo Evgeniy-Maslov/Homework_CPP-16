@@ -21,13 +21,19 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton->setText("next step ProgressBar");
     ui->pushButton->setCheckable(true);
     ui->pushButton_2->setText("Exit");
-    ui->progressBar->setMinimum(0);
-    ui->progressBar->setMaximum(10);
+    ui->progressBar->setRange(0, 10);
     ui->progressBar->setValue(0);
-    // ui->progressBar->setFormat("%p");
-    ui->progressBar->setValue(2);
-}
 
+    QObject::connect(ui->pushButton_2, &QPushButton::clicked, this, [=](){close();});
+    QObject::connect(ui->pushButton, &QPushButton::clicked, this, [=](){MainWindow::onClicked();});
+}
+void MainWindow::onClicked()
+{
+    if(ui->pushButton->isChecked())
+    {
+        (count == 10) ? ui->progressBar->setValue(count = 0) : ui->progressBar->setValue(++count);
+    }
+}
 MainWindow::~MainWindow()
 {
     delete ui;

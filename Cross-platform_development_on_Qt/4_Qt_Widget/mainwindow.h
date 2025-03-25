@@ -13,9 +13,14 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+    int count{};
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+public Q_SLOTS:
+    void onClicked();
 
 private:
     Ui::MainWindow *ui;
