@@ -10,7 +10,6 @@ Stopwatch::Stopwatch(Ui::MainWindow &m_ui, QObject *parent) : QObject{parent} , 
     QObject::connect(this, &Stopwatch::my_Clicked_reset, this, &Stopwatch::reset_stopwatch);
     QObject::connect(this, &Stopwatch::my_Clicked_reset, this, &Stopwatch::reset_stopwatch);
     QObject::connect(this, &Stopwatch::new_Circle, this, &Stopwatch::on_new_Circle);
-    QObject::connect(this, &Stopwatch::my_sygnal_stop, this, &Stopwatch::on_new_Circle);
 }
 
 void Stopwatch::start_stopwatch()
