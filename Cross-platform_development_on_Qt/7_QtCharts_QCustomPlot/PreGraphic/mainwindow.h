@@ -7,7 +7,6 @@
 #include <QMessageBox>
 #include <QtGlobal>
 #include <QtConcurrent>
-#include <algorithm>
 
 ///Подключаем все что нужно для графиков
 #include <QLineSeries>
@@ -42,20 +41,21 @@ public:
 
 Q_SIGNALS:
     void data_is_ready_for_rendering();
+    void clear_series();
+    void signal_DisplayResult(QVector<double> mins, QVector<double> maxs);
 
 private Q_SLOTS:
     void on_pb_path_clicked();
     void on_pb_start_clicked();
-    void chart_display(/*QSplineSeries *series, QChart* chart*/);
-
-
+    void chart_display();
 
 
 private:
     Ui::MainWindow *ui;
 
-    QSplineSeries *series;
+    QMainWindow *window;
     QChart* chart;
+    QSplineSeries *series;
     QChartView *chartview;
 
     QString pathToFile = "";

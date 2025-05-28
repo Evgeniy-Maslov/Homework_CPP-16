@@ -22,7 +22,9 @@ set(PROJECT_SOURCES
 
 add_executable(PreGraphic
     ${PROJECT_SOURCES}
-    chart.h chart.cpp chart.ui
+
+
+
 )
 
 

@@ -1,15 +1,26 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow), series(new QSplineSeries), chart(new QChart), chartview(new QChartView(chart))
+    , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    // ui->le_path->setText("C:/Users/Evgeniy/Downloads/testData.adc");
+    // pathToFile = ui->le_path->text();
     ui->pb_clearResult->setCheckable(true);
-    QObject::connect(this, &MainWindow::data_is_ready_for_rendering, [&](){
-        chart_display();});
 
+    series = new QSplineSeries(this);
+    chart = new QChart();
+    chart->legend()->setVisible(false);
+    chartview = new QChartView(chart);
+    window = new QMainWindow();
+
+    QObject::connect(this, &MainWindow::data_is_ready_for_rendering, this, [=](){chart_display();});
+    QObject::connect(this, &MainWindow::signal_DisplayResult, this, &MainWindow::DisplayResult);
+    // QObject::connect(this, window.
 }
 
 MainWindow::~MainWindow()
@@ -17,6 +28,7 @@ MainWindow::~MainWindow()
     delete ui;
     delete chart;
     delete chartview;
+    delete window;
     delete series;
 }
 
@@ -109,16 +121,18 @@ QVector<double> MainWindow::FindMax(QVector<double> resultData)
 {
     double max = 0, sMax=0;
     //Поиск первого максиума
+    QThread::usleep(1);
     foreach (double num, resultData){
-        //QThread::usleep(1);
+        // QThread::usleep(1);
         if(num > max){
             max = num;
         }
     }
 
     //Поиск 2го максимума
+    QThread::usleep(1);
     foreach (double num, resultData){
-        //QThread::usleep(1);
+        // QThread::usleep(1);
         if(num > sMax && (qFuzzyCompare(num, max) == false)){
             sMax = num;
         }
@@ -222,19 +236,31 @@ void MainWindow::on_pb_start_clicked()
     auto findMax = [&](QVector<double> res){
                                                 maxs = FindMax(res);
                                                 mins = FindMin(res);
-                                                DisplayResult(mins, maxs);
+                                                emit signal_DisplayResult(mins, maxs);
+                                                // DisplayResult(mins, maxs);
 
                                                 /*********/
-                                                // QSplineSeries *series = new QSplineSeries();
-                                                for(int i = 0; i < FD; i++){
-                                                    series->append(i / FD, res[i]);
+
+                                                if (chart->series().empty() == false)
+                                                {
+                                                    series->clear();
+                                                    chart->removeSeries(series);
                                                 }
+                                                QThreadPool pool;
+                                                auto app_Series = [=](){
+                                                    QThread::sleep(1);
+                                                    for(int i = 0; i < FD; i++)
+                                                        {
+                                                            series->append(i / FD, res[i]);
+                                                        }
+                                                };
+                                                // auto emit_signal = [&](){emit data_is_ready_for_rendering();};
+                                                auto res_series = QtConcurrent::run(&pool, app_Series).then([=](){
+                                                                                emit data_is_ready_for_rendering();
+                                                                                });
+
                                                 /**********/
-
-                                                // emit data_is_ready_for_rendering();
-
-
-                                             };
+                                                };
 
     auto result = QtConcurrent::run(read)
                                .then(process)
@@ -242,20 +268,18 @@ void MainWindow::on_pb_start_clicked()
 
 }
 
-void MainWindow::chart_display(/*QSplineSeries *series, QChart* chart*/)
+
+void MainWindow::chart_display()
 {
-    chart->legend()->hide();
     chart->addSeries(series);
     chart->setTitle("displaying the first second");
     chart->createDefaultAxes();
-    chart->axes(Qt::Vertical).first()->setRange(0, 10);
+    chart->axes(Qt::Vertical).first()->setRange(mins[0], maxs[0]);
 
-    // QChartView *chartview = new QChartView(chart);
+
     chartview->setRenderHints(QPainter::Antialiasing);
-
-    QMainWindow window;
-    window.setCentralWidget(chartview);
-    window.resize(400, 300);
-    window.show();
+    window->resize(800, 400);
+    window->setCentralWidget(chartview);
+    window->show();
 }
 
