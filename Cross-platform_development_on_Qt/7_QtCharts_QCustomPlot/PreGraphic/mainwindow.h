@@ -58,7 +58,7 @@ private:
     QSplineSeries *series;
     QChartView *chartview;
 
-    QString pathToFile = "";
+    QString pathToFile = "D:\\source\\Homework_CPP-16\\Cross-platform_development_on_Qt\\7_QtCharts_QCustomPlot\\PreGraphic\\build\\Desktop-Debug\\testData.adc";
     uint8_t numberSelectChannel = 0xEA;
 
     QVector<uint32_t> readData;

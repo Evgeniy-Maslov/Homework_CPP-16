@@ -8,9 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    // ui->le_path->setText("C:/Users/Evgeniy/Downloads/testData.adc");
-    // pathToFile = ui->le_path->text();
     ui->pb_clearResult->setCheckable(true);
+
+    ui->le_path->setText(pathToFile);
 
     series = new QSplineSeries(this);
     chart = new QChart();
@@ -20,7 +20,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     QObject::connect(this, &MainWindow::data_is_ready_for_rendering, this, [=](){chart_display();});
     QObject::connect(this, &MainWindow::signal_DisplayResult, this, &MainWindow::DisplayResult);
-    // QObject::connect(this, window.
 }
 
 MainWindow::~MainWindow()
@@ -249,11 +248,11 @@ void MainWindow::on_pb_start_clicked()
                                                 QThreadPool pool;
                                                 auto app_Series = [=](){
                                                     QThread::sleep(1);
-                                                    for(int i = 0; i < FD; i++)
+                                                    for(int j = 0; j < FD; j++)
                                                         {
-                                                            series->append(i / FD, res[i]);
+                                                            series->append(j / FD, res[j]);
                                                         }
-                                                };
+                                                 };
                                                 // auto emit_signal = [&](){emit data_is_ready_for_rendering();};
                                                 auto res_series = QtConcurrent::run(&pool, app_Series).then([=](){
                                                                                 emit data_is_ready_for_rendering();
@@ -274,8 +273,7 @@ void MainWindow::chart_display()
     chart->addSeries(series);
     chart->setTitle("displaying the first second");
     chart->createDefaultAxes();
-    chart->axes(Qt::Vertical).first()->setRange(mins[0], maxs[0]);
-
+    //chart->axes(Qt::Vertical).first()->setRange(mins[0], maxs[0]);
 
     chartview->setRenderHints(QPainter::Antialiasing);
     window->resize(800, 400);
