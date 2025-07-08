@@ -193,7 +193,13 @@ void TCPclient::ProcessingData(ServiceHeader header, QDataStream &stream)
         case SET_DATA:{
             QString replyString;
             stream >> replyString;
-            emit sig_SendReplyForSetData(replyString);
+            if(header.status == ERR_NO_FREE_SPACE)
+            {
+                emit sig_Error(header.status);
+            }
+            else{
+                emit sig_SendReplyForSetData(replyString);
+            }
             break;
         }
         case CLEAR_DATA:{
@@ -203,5 +209,4 @@ void TCPclient::ProcessingData(ServiceHeader header, QDataStream &stream)
         default:
             return;
         }
-        emit sig_Error(header.status);
 }
