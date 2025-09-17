@@ -2,10 +2,10 @@
 
 #pragma once
 
+//#include <vector>
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "CppBaseActor.generated.h"
-
 
 class UStaticMeshComponent;
 
@@ -61,6 +61,24 @@ protected:
 
 	UPROPERTY(EditInstanceOnly)
 	bool IsAlive = true;
+
+	UFUNCTION(BlueprintCallable)
+	void ShowInformation();
+
+	UFUNCTION(BlueprintCallable)
+	void SinMovement();
+
+	UPROPERTY(EditAnywhere)
+	float Amplitude = 70.0;
+
+	UPROPERTY(EditAnywhere)
+	float Frequency = 4.0;
+
+	UPROPERTY(EditAnywhere)
+	FVector InitialLocation;
+
+	UPROPERTY(EditAnywhere)
+	EMovementState Enum;
 
 public:
 	// Called every frame
