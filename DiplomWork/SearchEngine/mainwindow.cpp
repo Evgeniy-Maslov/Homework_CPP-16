@@ -121,7 +121,7 @@ void MainWindow::ScreanOutputSearchWordsFromDB(QSqlQuery* simpleQuery)
     ui->txtBrSearchWord->clear();
     bool flag = false;
     uint numDoc = 1;
-    while (simpleQuery->next()) {
+    while (simpleQuery->next() and numDoc <= 10) {
         flag = true;
         QString resultsSearch = QString("%3.  В документе \"%1\" имеется %2 совпадения искомых слов." ).arg(simpleQuery->value(0).toString(),
                                                                                                     simpleQuery->value(1).toString(),
