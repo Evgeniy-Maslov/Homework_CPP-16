@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pb_search, &QPushButton::clicked, this, &MainWindow::ReadSearchBarAndParsing);
     QObject::connect(ui->lineEdit_search, &QLineEdit::returnPressed, this, &MainWindow::ReadSearchBarAndParsing);
     QObject::connect(dataBase, &DataBase::sig_SendDataSearchWord, this, &MainWindow::ScreanOutputSearchWordsFromDB);
-    QObject::connect(ui->pb_foundDoc, &QPushButton::clicked, this, [=](){RequestToDB(tempRequest, requestFoundDocuments);});
+    QObject::connect(ui->pb_foundDoc, &QPushButton::clicked, this, [=](){CheckRequestAndReadAnswerFromDB(tempRequest, requestFoundDocuments);});
     QObject::connect(dataBase, &DataBase::sig_SendDataFoundDocuments, this, &MainWindow::ScreanOutputFoundDocumentsTable);
 }
 
@@ -36,7 +36,7 @@ MainWindow::~MainWindow()
     delete msg;
 }
 
-void MainWindow::RequestToDB(QString request, int typeRequest)
+void MainWindow::CheckRequestAndReadAnswerFromDB(QString request, int typeRequest)
 {
     QSqlError err = dataBase->RequestToDB(request);
     if(err.isValid()){
@@ -53,7 +53,7 @@ void MainWindow::ReceiveStatusConnectionToDB(bool status)
 {
     statusConnect = status;
     if(statusConnect){
-        RequestToDB(requestAllWords, requestTypeAllWords);
+        CheckRequestAndReadAnswerFromDB(requestAllWords, requestTypeAllWords);
         ui->lb_statusConnect->setText("Подключено");
         ui->lb_statusConnect->setStyleSheet("color:green");
         ui->pb_search->setEnabled(statusConnect);
@@ -95,7 +95,7 @@ void MainWindow::ReadSearchBarAndParsing()
         }
     }
     tempRequest = requestSearchWord.arg(SearchBar[0], SearchBar[1], SearchBar[2], SearchBar[3]);
-    RequestToDB(tempRequest, requestTypeSearchWord);
+    CheckRequestAndReadAnswerFromDB(tempRequest, requestTypeSearchWord);
 }
 
 void MainWindow::ScreenOutputAllWordsFromDB(QSqlQueryModel* queryModel)
@@ -131,7 +131,7 @@ void MainWindow::ScreanOutputSearchWordsFromDB(QSqlQuery* simpleQuery)
     }
     if(!flag){
         ui->txtBrSearchWord->setText("Искомых слов нет ни в одном документе.");
-        RequestToDB(requestAllWords, requestTypeAllWords);
+        CheckRequestAndReadAnswerFromDB(requestAllWords, requestTypeAllWords);
     }
      ui->pb_foundDoc->setEnabled(flag);
 }

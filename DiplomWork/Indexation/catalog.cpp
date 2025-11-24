@@ -13,7 +13,6 @@ Catalog::Catalog(QString data, DataBase& db, QObject *parent)
 Catalog::~Catalog()
 {
     delete dir;
-    delete db_PostgreSQL;
 }
 
 void Catalog::setParametersIndexing()
@@ -34,7 +33,7 @@ void Catalog::FolderBrowsingAndFindFile(QString nameDir)
     dir = new QDir(nameDir);
     if (!dir->exists())
     {
-        qWarning("Cannot find the example directory");
+        qWarning() << QString("Cannot find the example directory - %1").arg(nameDir);
     }
 
 //**************************/ поиск подкаталогов /***************************//
@@ -46,7 +45,6 @@ void Catalog::FolderBrowsingAndFindFile(QString nameDir)
 
     dir->setFilter(QDir::Files | QDir::NoDotAndDotDot | QDir::Readable);
     dir->setNameFilters(fileFilters);
-    // qDebug() << dir->nameFilters();
     QFileInfoList listFile = dir->entryInfoList();
 
 //************************/ перебор и рекурсивный вход в подкаталоги /*******//
@@ -71,33 +69,27 @@ void Catalog::FolderBrowsingAndFindFile(QString nameDir)
 void Catalog::ReadFileAndParsing(QFileInfo fileInfo)
 {
     QFile file(dir->filePath(fileInfo.fileName()));
-    // QFile file("D:\\source\\Homework_CPP-16\\IndexerProgram\\Work\\Documents\\browscap.ini");
     QString nameDoc = fileInfo.fileName().split(".").front();
-    // qDebug() << nameDoc;
-
-    if(file.open(QIODevice::ReadOnly | QIODevice::Text))
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    if(!file.isOpen())
+    {
+        qWarning() << QString("Сan't open the file - %1").arg(file.fileName());
+    }
+    else
     {
         QTextStream in(&file);
         QString buff = in.readAll().toLower();
         file.close();
-        buff.replace(QRegularExpression("[^а-яА-ЯёЁa-zA-Z]"), " ").replace(QRegularExpression("\\s+"), " ");
-
-        CalculateWordsAndSavingInDatabase(nameDoc, buff);
-
-//****************************/ тестовая выгрузка файлов /**************************************//
-
-        QFile outFile("D:\\source\\Homework_CPP-16\\DiplomWork\\Work\\"+ nameDoc +".txt");
-        if(outFile.open(QIODevice::WriteOnly | QIODevice::Text))
+        if(buff.isEmpty())
         {
-            QTextStream out(&outFile);
-            out << buff;
-            outFile.close();
+            qWarning() << QString("The file is empty - %1").arg(file.fileName());
+        }
+        else
+        {
+            buff.replace(QRegularExpression("[^а-яА-ЯёЁa-zA-Z]"), " ").replace(QRegularExpression("\\s+"), " ");
+            CalculateWordsAndSavingInDatabase(nameDoc, buff);
         }
     }
-    else {
-        qWarning("Сan't open the file");
-    }
-
 }
 
 void Catalog::CalculateWordsAndSavingInDatabase(QString nameDoc, QString textDoc)
@@ -105,14 +97,16 @@ void Catalog::CalculateWordsAndSavingInDatabase(QString nameDoc, QString textDoc
     QStringList listWords = textDoc.split(" ");
     QMap<QString, uint32_t> words;
     foreach (QString s, listWords) {
-        if(s.size() > 2 and s.size() <= 32){
+        if(s.size() > 2 and s.size() <= 32)
+        {
             words[s]++;
         }
     }
     QStringList tableHeaders = db_PostgreSQL->GetTableHeaders();
     bool checkValue;
     checkValue = db_PostgreSQL->CheckingMatchValue(tableHeaders[nameTableDocuments], tableHeaders[nameColumnDocuments], nameDoc);
-    if(!checkValue){
+    if(!checkValue)
+    {
         db_PostgreSQL->RequestINSERT(tableHeaders[nameTableDocuments], tableHeaders[nameColumnDocuments], nameDoc);
     }
 

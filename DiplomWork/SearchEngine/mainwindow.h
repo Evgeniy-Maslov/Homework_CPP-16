@@ -31,7 +31,7 @@ public Q_SLOTS:
 
 
 private:
-    void RequestToDB(QString request, int typeRequest);
+    void CheckRequestAndReadAnswerFromDB(QString request, int typeRequest);
     void ReadSearchBarAndParsing();
 
 
